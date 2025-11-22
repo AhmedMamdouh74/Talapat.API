@@ -1,4 +1,5 @@
 ﻿using Domain.Concrats;
+using infrastructure.Repos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,7 +20,8 @@ namespace infrastructure.Data.DI
                 options.UseSqlServer(configuration.GetConnectionString("Default"));
 
             });
-            
+            services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
+
 
             return services;
         }

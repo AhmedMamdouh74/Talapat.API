@@ -1,11 +1,25 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Domain.Concrats;
+using Domain.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Talabat.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductController : BaseAPIController
     {
+        private readonly IGenericRepository<Product, int> repository;
+
+        public ProductController(IGenericRepository<Product, int> _repository)
+        {
+            repository = _repository;
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetProducts()
+        {
+            var products= await repository.GetAllAsync();
+            return Ok(products);
+        }
     }
 }

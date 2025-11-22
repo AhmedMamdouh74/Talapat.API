@@ -8,7 +8,7 @@ namespace Domain.Concrats
 {
     public interface IGenericRepository<T,TK> where T:BaseEntity<TK>
     {
-        Task<T> GetByIdAsync(TK id);
+        Task<T?> GetByIdAsync(TK id);
         Task<IReadOnlyList<T>> GetAllAsync();
       
     }
