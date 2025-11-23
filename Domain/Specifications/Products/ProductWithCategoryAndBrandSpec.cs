@@ -6,11 +6,17 @@ namespace Domain.Specifications.Products
     {
         public ProductWithCategoryAndBrandSpec()
         {
-            Includes.Add(p => p.Brand);
-            Includes.Add(p => p.Category);
+            AddIncludes();
 
         }
+
+       
+
         public ProductWithCategoryAndBrandSpec(int id) : base(p => p.Id == id)
+        {
+            AddIncludes();
+        }
+        private void AddIncludes()
         {
             Includes.Add(p => p.Brand);
             Includes.Add(p => p.Category);

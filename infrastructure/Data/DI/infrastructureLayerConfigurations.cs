@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace infrastructure.Data.DI
 {
-    public static class DependencyInjection
+    public static class infrastructureLayerConfigurations
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services,IConfiguration configuration)
         {

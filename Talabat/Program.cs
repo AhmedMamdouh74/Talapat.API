@@ -1,10 +1,8 @@
 
 using infrastructure.Data;
 using infrastructure.Data.DI;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Data.SqlClient;
+using Application.DI;  
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
 
 namespace Talabat
 {
@@ -16,6 +14,7 @@ namespace Talabat
 
             // Add services to the container.
             builder.Services.AddInfrastructure(builder.Configuration);
+            builder.Services.AddApplication();
 
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
