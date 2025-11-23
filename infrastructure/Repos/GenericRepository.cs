@@ -28,9 +28,9 @@ namespace infrastructure.Repos
 
         public async Task<T?> GetByIdAsync(TK id)
         {
-            if (typeof(T) == typeof(Product)) return await dbContext.Set<Product>()
+            if (typeof(T) == typeof(Product)) return await dbContext.Set<Product>().Where(p => p.Id!.Equals(id))
                 .Include(p => p.Category)
-                .Include(p => p.Brand).FirstOrDefaultAsync(p => p.Id.Equals(id)) as T;
+                .Include(p => p.Brand).FirstOrDefaultAsync() as T;
             ;
             return await dbContext.Set<T>().FindAsync(id);
         }

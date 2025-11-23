@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Brand:BaseEntity<int>
+    public class Brand:BaseEntity
     {
         public string? Name { get; set; }
     }
