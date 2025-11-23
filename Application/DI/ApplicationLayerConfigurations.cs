@@ -1,7 +1,6 @@
-﻿using Application.Mapping;
+﻿using Application.Helpers;
+using Application.Mapping;
 using Microsoft.Extensions.DependencyInjection;
-
-
 
 namespace Application.DI
 {
@@ -12,6 +11,8 @@ namespace Application.DI
         {
             // Add application services and configurations here
             services.AddAutoMapper(op => op.AddProfile<MapConfig>());
+            services.AddScoped<ProductPictureUrlReslover>();
+            
             return services;
         }
     }

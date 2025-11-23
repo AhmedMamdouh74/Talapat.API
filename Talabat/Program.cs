@@ -1,7 +1,8 @@
 
+using Application.DI;  
+using Application.Mapping;
 using infrastructure.Data;
 using infrastructure.Data.DI;
-using Application.DI;  
 using Microsoft.EntityFrameworkCore;
 
 namespace Talabat
@@ -15,6 +16,7 @@ namespace Talabat
             // Add services to the container.
             builder.Services.AddInfrastructure(builder.Configuration);
             builder.Services.AddApplication();
+         
 
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -34,6 +36,7 @@ namespace Talabat
             }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
 
             app.UseAuthorization();
 
